@@ -1,9 +1,8 @@
 {
   "name": "audio-transcript",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
-    "dev": "serverless offline start --httpPort 4000 --noAuth",
+    "dev": "nodemon -L --watch src --ext ts,js --exec serverless offline start --httpPort 4000 --noAuth --reloadHandler",
     "deploy": "sls deploy",
     "deploy:prod": "sls deploy --stage prod"
   },

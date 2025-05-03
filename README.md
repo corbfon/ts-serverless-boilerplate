@@ -20,12 +20,7 @@ The TS-Serverless Boilerplate is designed to:
 
 ### Installation
 
-1. Clone the repository:
-
-```bash
-git clone https://github.com/your-repo/ts-serverless-boilerplate.git
-cd ts-serverless-boilerplate
-```
+1. Clone the repository
 
 2. Install dependencies:
 
@@ -40,9 +35,7 @@ yarn install
 To start the serverless application locally:
 
 ```bash
-npm run start
-# or
-yarn start
+npm run dev
 ```
 
 This will use the `serverless-offline` plugin to emulate the AWS Lambda environment locally.
@@ -51,32 +44,30 @@ This will use the `serverless-offline` plugin to emulate the AWS Lambda environm
 
 To deploy the application to AWS:
 
-1. Ensure your AWS credentials are configured.
+1. Ensure your AWS credentials are configured. You can specify the profile to use in `serverless.ts`
 2. Run the deployment command:
 
 ```bash
 npm run deploy
-# or
-yarn deploy
+```
+
+To deploy to production:
+
+```bash
+npm run deploy-prod
+```
+
+And if you'd like to create new stages, specify the stage in the command:
+
+```bash
+npm run deploy -s <your-stage>
 ```
 
 ### Modifying the API
 
-1. Add or modify API endpoints in the `src/handlers` directory.
-2. Update the `serverless.yml` file to define new functions and their triggers.
+1. Add or modify API endpoints in the `src/api` directory.
+2. No update is necessary to `serverless.yml` because the API handler handles all request to / and /proxy+.
 3. Test your changes locally using:
-
-```bash
-npm run start
-# or
-yarn start
-```
-
-## Folder Structure
-
-- `src/` - Contains the source code for your Lambda functions.
-- `serverless.yml` - Configuration file for the Serverless Framework.
-- `tests/` - Contains unit and integration tests.
 
 ## Contributing
 
